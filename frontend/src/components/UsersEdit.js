@@ -18,6 +18,13 @@ import Switch from '@material-ui/core/Switch'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
 import { renderTextField, renderSwitch, renderRadioGroup } from '../components/utils/renderInputs'
+import {
+  required,
+  email,
+  maxLength50,
+  maxLength16,
+  minLength6,
+} from '../components/utils/validation'
 
 const validate = values => {
   const errors = {}
@@ -92,6 +99,7 @@ const UsersEdit = ({ classes, isAdmin, handleSubmit, onClose, onSave, user }) =>
             label="Nome"
             type="text"
             autoComplete="off"
+            validate={[required, maxLength50]}
             fullWidth
             className={classes.input}
             disabled={!isAdmin}
@@ -102,6 +110,7 @@ const UsersEdit = ({ classes, isAdmin, handleSubmit, onClose, onSave, user }) =>
             label="Sobrenome"
             type="text"
             autoComplete="off"
+            validate={[required, maxLength50]}
             fullWidth
             className={classes.input}
             disabled={!isAdmin}
@@ -112,6 +121,7 @@ const UsersEdit = ({ classes, isAdmin, handleSubmit, onClose, onSave, user }) =>
             label="E-mail"
             type="email"
             autoComplete="off"
+            validate={[required, email, maxLength50]}
             fullWidth
             className={classes.input}
             disabled={!isAdmin}
@@ -123,6 +133,7 @@ const UsersEdit = ({ classes, isAdmin, handleSubmit, onClose, onSave, user }) =>
               label="Senha"
               type="password"
               autoComplete="off"
+              validate={[maxLength16, minLength6]}
               fullWidth
               className={classes.input}
             />
