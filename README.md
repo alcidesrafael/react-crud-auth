@@ -27,11 +27,11 @@ The project build is available [here on Heroku](https://react-crud-auth.herokuap
 ```js
 // frontend/.env example file
 
-REACT_APP_AUTH_SERVER=http:\\localhost:3000\auth
-REACT_APP_USER_SERVER=http:\\localhost:3000\users
+REACT_APP_AUTH_SERVER=http://localhost:3000/auth
+REACT_APP_USER_SERVER=http://localhost:3000/users
 ```
 
-5. Start the server using `$ node server` in the backend directory
+5. Start the server using `$ npm start` in the backend directory
 6. Start the application using `$ npm start` in the frontend directory
 7. **Attention**: both server and application will try to run on port 3000
 8. To log in you can use `email: admin@mail.com, password: 123456` or any other user from the backend/database.json
