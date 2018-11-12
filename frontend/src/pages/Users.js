@@ -12,7 +12,7 @@ import UsersTable from '../components/UsersTable'
 import UsersEdit from '../components/UsersEdit'
 import SimpleSnackbar from '../components/utils/simpleSnackbar'
 
-import { saveUser, updateUser, deleteUser } from '../actions/users'
+import { saveUser } from '../actions/users'
 
 const styles = theme => ({
   header: {
@@ -69,15 +69,16 @@ class Users extends Component {
   }
 
   handleSaveNewUser = user => {
+    if (user.firstName) {
+      user.firstName = user.firstName.trim()
+    }
+    if (user.lastName) {
+      user.lastName = user.lastName.trim()
+    }
+    if (user.email) {
+      user.email = user.email.trim()
+    }
     this.props.dispatch(saveUser(user))
-  }
-
-  handleUserUpdate = user => {
-    this.props.dispatch(updateUser(user))
-  }
-
-  handleUserDelete = id => {
-    this.props.dispatch(deleteUser(id))
   }
 
   closeSnackbar = () => {
@@ -118,11 +119,7 @@ class Users extends Component {
             </Grid>
           </Grid>
         </AppBar>
-        <UsersTable
-          {...rest}
-          onUserDelete={this.handleUserDelete}
-          onUserUpdate={this.handleUserUpdate}
-        />
+        <UsersTable {...rest} />
         {newUserOpen && (
           <UsersEdit
             isAdmin={isAdmin}

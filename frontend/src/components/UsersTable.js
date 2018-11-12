@@ -95,6 +95,16 @@ class UsersTable extends Component {
   }
 
   handleUpdateUser = user => {
+    if (user.firstName) {
+      user.firstName = user.firstName.trim()
+    }
+    if (user.lastName) {
+      user.lastName = user.lastName.trim()
+    }
+    if (user.email) {
+      user.email = user.email.trim()
+    }
+
     this.props.onUserUpdate(user)
     this.handleEditUserClose()
   }
