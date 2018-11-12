@@ -98,6 +98,9 @@ export const updateFailed = error => ({
 
 export const updateUser = user => dispatch => {
   dispatch(updateRequest())
+  if (user.id === 1) {
+    return dispatch(updateFailed('Este usuário não pode ser alterado!'))
+  }
   axios
     .patch(`${USER_SERVER}/${user.id}`, user, getConfig())
     .then(response => dispatch(updateSuccess(response.data)))
