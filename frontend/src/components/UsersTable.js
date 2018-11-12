@@ -135,11 +135,11 @@ class UsersTable extends Component {
     } = this.state
     const isLoading = isFetching || isSaving || isDeleting || isUpdating ? true : false
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, users.lenght - page * rowsPerPage)
-    const emptyData = users.length > 0 ? false : true
     const isAdmin = user.profile === 'admin' ? true : false
     const usersFiltered = users.filter(user =>
       user.firstName.toLowerCase().includes(searchInput.toLowerCase())
     )
+    const emptyData = usersFiltered.length > 0 ? false : true
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
@@ -160,6 +160,9 @@ class UsersTable extends Component {
               ) : emptyData ? (
                 <TableRow>
                   <TableCell>Nenhum usuário encontrado.</TableCell>
+                  <TableCell />
+                  <TableCell />
+                  <TableCell />
                 </TableRow>
               ) : (
                 stableSort(usersFiltered, getSorting(order, orderBy))
