@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Administrador",
+      "lastName": "Silva",
+      "email": "admin@mail.com",
+      "password": "123456",
+      "active": true,
+      "profile": "admin"
+    },
+    {
+      "id": 2,
+      "firstName": "Usuário",
+      "lastName": "padrão",
+      "email": "usuario@mail.com",
+      "password": "123456",
+      "active": true,
+      "profile": "user"
+    },
+    {
+      "firstName": "Usuário 2",
+      "lastName": "Teste",
+      "email": "user@mail.com",
+      "password": "123456",
+      "active": false,
+      "profile": "user",
+      "id": 3
+    }
+  ]
+}
